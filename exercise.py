@@ -1,11 +1,7 @@
-country = input("What is your country? ")
+names = ["John Smith", "Sen Plakay", "Dora Ngacely"]
 
-match country.upper():
-    case 'USA':
-        print("Hello")
-    case 'INDIA':
-        print("Namaste")
-    case "GERMANY":
-        print("Hallo")
+
+for name in names:
+    print(name)
 
 
