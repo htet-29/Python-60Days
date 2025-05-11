@@ -1,7 +1,4 @@
-names = ["John Smith", "Sen Plakay", "Dora Ngacely"]
+dollar = float(input("Enter a dollar amount: "))
 
-
-for name in names:
-    print(name)
-
+print("Euro equivalent:", dollar * 2)
 
