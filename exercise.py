@@ -1,5 +1,6 @@
 ranking = ['John', 'Sen', 'Lisa']
 
-rank = int(input("Enter a ranking number: ")) - 1
-print(ranking[rank])
+person = input('What is athlete name? ')
+rank = ranking.index(person) + 1
+print(rank)
 
