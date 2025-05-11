@@ -1,4 +1,5 @@
-dollar = float(input("Enter a dollar amount: "))
+ranking = ['John', 'Sen', 'Lisa']
 
-print("Euro equivalent:", dollar * 2)
+rank = int(input("Enter a ranking number: ")) - 1
+print(ranking[rank])
 
