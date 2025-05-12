@@ -1,6 +1,5 @@
-ranking = ['John', 'Sen', 'Lisa']
+filenames = ['document', 'report', 'presentation']
 
-person = input('What is athlete name? ')
-rank = ranking.index(person) + 1
-print(rank)
-
+for index, filename in enumerate(filenames):
+    row = f"{index}-{filename.capitalize()}.txt"
+    print(row)
