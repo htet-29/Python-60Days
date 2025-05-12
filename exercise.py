@@ -1,5 +1,6 @@
-filenames = ['document', 'report', 'presentation']
+ips = ['100.122.133.105', '100.122.133.111']
 
-for index, filename in enumerate(filenames):
-    row = f"{index}-{filename.capitalize()}.txt"
-    print(row)
+index = int(input('Choose the index to get your ip (1 or 2): '))
+print(f"You choose ip : {ips[index - 1]}")
+
+
