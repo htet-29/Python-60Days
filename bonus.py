@@ -1,7 +1,12 @@
-file_names = ["1.Refactor.txt", "2.Animation.txt", "3.Videos.txt"]
+wait_list = ["ben", "sen", "den"]
+wait_list.sort()
 
-for file_name in file_names:
-    file_name = file_name.replace(".", "-", 1)
-    print(file_name)
+for index, name in enumerate(wait_list):
+    row = f"{index + 1}.{name}"
+    print(row)
 
+wait_list.sort(reverse=True)
 
+for index, name in enumerate(wait_list):
+    row = f"{index + 1}.{name}"
+    print(row)
