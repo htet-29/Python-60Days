@@ -1,6 +1,6 @@
-ips = ['100.122.133.105', '100.122.133.111']
+seconds = [1.23, 1.45, 1.02, 1.11]
 
-index = int(input('Choose the index to get your ip (1 or 2): '))
-print(f"You choose ip : {ips[index - 1]}")
+seconds.pop(1)
+print(seconds)
 
 
