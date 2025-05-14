@@ -1,12 +1,8 @@
-wait_list = ["ben", "sen", "den"]
-wait_list.sort()
+contents = ["The dogs are barking", "The cats are eating the fish", "My grandma is sleeping"]
 
-for index, name in enumerate(wait_list):
-    row = f"{index + 1}.{name}"
-    print(row)
+filenames = ["dogs.txt", "cats.txt", "grandma.txt"]
 
-wait_list.sort(reverse=True)
-
-for index, name in enumerate(wait_list):
-    row = f"{index + 1}.{name}"
-    print(row)
+for content, filename in zip(contents, filenames):
+    file = open(f"files/{filename}", "w")
+    file.writelines(content)
+    file.close()
