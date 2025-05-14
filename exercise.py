@@ -1,5 +1,6 @@
-file = open('bear.txt')
+file = open('essay.txt')
 content = file.read()
-print(content)
+print(content.title())
+print(len(content))
 
 
