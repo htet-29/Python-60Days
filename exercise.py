@@ -1,6 +1,6 @@
-file = open('essay.txt')
-content = file.read()
-print(content.title())
-print(len(content))
+file = open('file.txt', 'w')
+file.write("snail")
+file.close()
+
 
 
