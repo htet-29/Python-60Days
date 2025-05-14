@@ -1,14 +1,8 @@
-file = open('members.txt', 'r')
-members = file.readlines()
-file.close()
+filenames = ['a.txt', 'b.txt', 'c.txt']
 
-name = input("Enter a new member: ") + '\n'
-
-file = open('members.txt', 'w')
-members.append(name)
-file.writelines(members)
-file.close()
-
-
-
+for filename in filenames:
+    file = open(filename, 'r')
+    content = file.read()
+    print(content)
+    file.close()
 
