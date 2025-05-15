@@ -1,4 +1,4 @@
-usernames = ["john 1990", "alberta1970", "magnola2000"]
+user_entries = ['10', '19.1', '20']
 
-chars = [len(name) for name in usernames]
-print(chars)
+floats = [float(entry) for entry in user_entries]
+print(floats)
