@@ -1,8 +1,5 @@
-contents = ["The dogs are barking", "The cats are eating the fish", "My grandma is sleeping"]
+filenames = ['1.dog', "2.cat", "3.fish"]
 
-filenames = ["dogs.txt", "cats.txt", "grandma.txt"]
+filenames = [filename.replace(".", "-") + '.txt' for filename in filenames]
 
-for content, filename in zip(contents, filenames):
-    file = open(f"files/{filename}", "w")
-    file.writelines(content)
-    file.close()
+print(filenames)
