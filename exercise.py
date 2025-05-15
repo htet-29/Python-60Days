@@ -1,4 +1,4 @@
-names = ['john smith', 'jay santi', 'eva kuki']
+usernames = ["john 1990", "alberta1970", "magnola2000"]
 
-names = [name.title() for name in names]
-print(names)
+chars = [len(name) for name in usernames]
+print(chars)
