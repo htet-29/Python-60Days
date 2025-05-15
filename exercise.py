@@ -1,4 +1,6 @@
-user_entries = ['10', '19.1', '20']
+temperatures = [10, 12, 14]
+temperatures = [str(i) + '\n' for i in temperatures]
 
-total = sum(float(entry) for entry in user_entries)
-print(total)
+file = open('file.txt', 'w')
+file.writelines(temperatures)
+file.close()
