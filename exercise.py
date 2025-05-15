@@ -1,8 +1,4 @@
-filenames = ['a.txt', 'b.txt', 'c.txt']
+names = ['john smith', 'jay santi', 'eva kuki']
 
-for filename in filenames:
-    file = open(filename, 'r')
-    content = file.read()
-    print(content)
-    file.close()
-
+names = [name.title() for name in names]
+print(names)
