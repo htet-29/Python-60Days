@@ -1,5 +1,3 @@
 Clean
-Throw
 Eat
-Sleep
-Write
+Sleep an hour

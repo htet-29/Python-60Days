@@ -25,13 +25,30 @@ while True:
                 row = f"{index + 1}-{item}"
                 print(row)
         case "edit":
+            with open('todos.txt', 'r') as file:
+                todos = file.readlines()
+
             number = int(input("Number of the todo to edit: "))
             number = number -1
+
             new_todo = input("Enter a new todo: ")
             todos[number] = new_todo.capitalize()
+
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+
         case "complete":
+            with open('todos.txt', 'r') as file:
+                todos = file.readlines()
+
             number = int(input("Number of the todo to complete: "))
-            todos.pop(number - 1)
+            item_to_removed = todos.pop(number - 1)
+
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+
+            message = f"Todo {item_to_removed.strip('\n')} has been completed."
+            print(message)
         case "exit":
             break
 
