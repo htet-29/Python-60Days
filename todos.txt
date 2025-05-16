@@ -2,3 +2,4 @@ Clean
 Throw
 Eat
 Sleep
+Write
