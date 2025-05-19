@@ -1,6 +1,2 @@
-temperatures = [10, 12, 14]
-temperatures = [str(i) + '\n' for i in temperatures]
-
-file = open('file.txt', 'w')
-file.writelines(temperatures)
-file.close()
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+print(letters[1:4])
