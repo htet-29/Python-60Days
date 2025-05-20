@@ -2,7 +2,7 @@ while True:
     user_action = input("Enter add, show, edit, complete or exit: ")
     user_action = user_action.lower().strip()
 
-    if "add" in user_action:
+    if user_action.startswith("add"):
         todo = user_action[4:] + '\n'
 
         with open('todos.txt', 'r') as file:
@@ -13,7 +13,7 @@ while True:
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif "show" in user_action:
+    elif user_action.startswith("show"):
         with open('todos.txt', 'r') as file:
             todos = file.readlines()
 
@@ -23,7 +23,7 @@ while True:
             item = item.strip('\n')
             row = f"{index + 1}-{item}"
             print(row)
-    elif "edit" in user_action:
+    elif user_action.startswith("edit"):
         with open('todos.txt', 'r') as file:
             todos = file.readlines()
 
@@ -36,7 +36,7 @@ while True:
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif "complete" in user_action:
+    elif user_action.startswith("complete"):
         with open('todos.txt', 'r') as file:
             todos = file.readlines()
 
@@ -48,7 +48,7 @@ while True:
 
         message = f"Todo {item_to_removed.strip('\n')} has been completed."
         print(message)
-    elif "exit" in user_action:
+    elif user_action.startswith("exit"):
         break
     else:
         print('Command is not valid! Try keywords(add, show, edit, complete, exit).')
