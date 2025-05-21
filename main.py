@@ -24,30 +24,36 @@ while True:
             row = f"{index + 1}-{item}"
             print(row)
     elif user_action.startswith("edit"):
-        with open('todos.txt', 'r') as file:
-            todos = file.readlines()
+        try:
+            with open('todos.txt', 'r') as file:
+                todos = file.readlines()
 
-        number = int(user_action[5:])
-        number = number -1
+            number = int(user_action[5:])
+            number = number -1
 
-        new_todo = input("Enter a new todo: ") + '\n'
-        todos[number] = new_todo.capitalize()
+            new_todo = input("Enter a new todo: ") + '\n'
+            todos[number] = new_todo.capitalize()
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+        except ValueError:
+            print("Command is not valid!")
 
     elif user_action.startswith("complete"):
-        with open('todos.txt', 'r') as file:
-            todos = file.readlines()
+        try:
+            with open('todos.txt', 'r') as file:
+                todos = file.readlines()
 
-        number = int(user_action[9:])
-        item_to_removed = todos.pop(number - 1)
+            number = int(user_action[9:])
+            item_to_removed = todos.pop(number - 1)
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
 
-        message = f"Todo {item_to_removed.strip('\n')} has been completed."
-        print(message)
+            message = f"Todo {item_to_removed.strip('\n')} has been completed."
+            print(message)
+        except IndexError:
+            print("There is no item with that number!")
     elif user_action.startswith("exit"):
         break
     else:
