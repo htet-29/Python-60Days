@@ -5,6 +5,7 @@ try:
     print(f"This is {percent}%")
 except ValueError:
     print("You need to enter a number. Run the program again.")
-
+except ZeroDivisionError:
+    print("Your total value can not be zero.")
 
 
