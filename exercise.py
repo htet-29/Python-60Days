@@ -1,2 +1,10 @@
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-print(letters[-3:])
+try:
+    total = float(input("Enter total value: "))
+    value = float(input("Enter value: "))
+    percent = (value / total) * 100
+    print(f"This is {percent}%")
+except ValueError:
+    print("You need to enter a number. Run the program again.")
+
+
+
