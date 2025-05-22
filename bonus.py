@@ -1,25 +1,11 @@
-password = input("Enter your password: ")
+def get_average():
+    with open("file/data.txt") as file:
+        data = file.readlines()
+        values = data[1:]
+        values = [float(i) for i in values]
+        _average = sum(values) / len(values)
+        return _average
 
-result = {}
 
-if len(password) >= 8:
-    result["length"] = True
-else:
-    result["length"] = False
-
-digit = False
-uppercase = False
-
-for i in password:
-    if i.isdigit():
-        digit = True
-    if i.isupper():
-        uppercase = True
-
-result["digit"] = digit
-result["uppercase"] = uppercase
-
-if all(result.values()):
-    print("Strong Password")
-else:
-    print("Weak Password")
+average = get_average()
+print(average)
