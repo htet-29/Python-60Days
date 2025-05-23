@@ -1,5 +1,5 @@
-def get_todos_from_file():
-    with open('todos.txt', 'r') as _file:
+def get_todos_from_file(filepath):
+    with open(filepath, 'r') as _file:
         _todos = _file.readlines()
     return _todos
 
@@ -11,7 +11,7 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:] + '\n'
 
-        todos = get_todos_from_file()
+        todos = get_todos_from_file("todos.txt")
 
         todos.append(todo.capitalize())
 
@@ -19,8 +19,7 @@ while True:
             file.writelines(todos)
 
     elif user_action.startswith("show"):
-        with open('todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos_from_file("todos.txt")
 
         # new_todo = [item.strip('\n') for item in todos]
 
@@ -28,9 +27,11 @@ while True:
             item = item.strip('\n')
             row = f"{index + 1}-{item}"
             print(row)
+
     elif user_action.startswith("edit"):
+
         try:
-            todos = get_todos_from_file()
+            todos = get_todos_from_file("todos.txt")
 
             number = int(user_action[5:])
             number = number -1
@@ -45,8 +46,9 @@ while True:
             continue
 
     elif user_action.startswith("complete"):
+
         try:
-            todos = get_todos_from_file()
+            todos = get_todos_from_file("todos.txt")
 
             number = int(user_action[9:])
             item_to_removed = todos.pop(number - 1)
@@ -56,6 +58,7 @@ while True:
 
             message = f"Todo {item_to_removed.strip('\n')} has been completed."
             print(message)
+
         except IndexError:
             print("There is no item with that number!")
             continue
