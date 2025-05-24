@@ -1,10 +1,10 @@
-def get_todos_from_file(filepath):
+def get_todos_from_file(filepath="todos.txt"):
     with open(filepath, 'r') as _file:
         _todos = _file.readlines()
     return _todos
 
 
-def write_todos_to_file(filepath, _todos):
+def write_todos_to_file(_todos, filepath="todos.txt"):
     with open(filepath, 'w') as _file:
         _file.writelines(_todos)
 
@@ -16,14 +16,14 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:] + '\n'
 
-        todos = get_todos_from_file("todos.txt")
+        todos = get_todos_from_file()
 
         todos.append(todo.capitalize())
 
-        write_todos_to_file("todos.txt", todos)
+        write_todos_to_file(todos)
 
     elif user_action.startswith("show"):
-        todos = get_todos_from_file("todos.txt")
+        todos = get_todos_from_file()
 
         # new_todo = [item.strip('\n') for item in todos]
 
@@ -35,7 +35,7 @@ while True:
     elif user_action.startswith("edit"):
 
         try:
-            todos = get_todos_from_file("todos.txt")
+            todos = get_todos_from_file()
 
             number = int(user_action[5:])
             number = number -1
@@ -43,7 +43,7 @@ while True:
             new_todo = input("Enter a new todo: ") + '\n'
             todos[number] = new_todo.capitalize()
 
-            write_todos_to_file("todos.txt", todos)
+            write_todos_to_file(todos)
         except ValueError:
             print("Command is not valid!")
             continue
@@ -51,12 +51,12 @@ while True:
     elif user_action.startswith("complete"):
 
         try:
-            todos = get_todos_from_file("todos.txt")
+            todos = get_todos_from_file()
 
             number = int(user_action[9:])
             item_to_removed = todos.pop(number - 1)
 
-            write_todos_to_file("todos.txt", todos)
+            write_todos_to_file(todos)
 
             message = f"Todo {item_to_removed.strip('\n')} has been completed."
             print(message)
