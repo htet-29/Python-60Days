@@ -1,8 +1,8 @@
-waiting_list = ["john", "marry"]
-name = input("Enter name: ")
+liters = float(input("Enter liters: "))
 
-try:
-    number = waiting_list.index(name)
-    print(f"{name}'s turn is {number}.")
-except ValueError:
-    print(f"{name} is not in the list.")
+def liters_to_m3(_liters):
+    m3 = liters / 1000
+    return m3
+
+
+print(liters_to_m3(liters))
