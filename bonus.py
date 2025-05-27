@@ -1,15 +1,30 @@
-from converter import convert_to_meter
-from parser import parsed
+import json
 
-measure = input("Enter your measure: ")
+with open("questions.json", "r") as file:
+    content = file.read()
 
-units = parsed(measure)
-meter = convert_to_meter(units['feet'], units['inches'])
+data = json.loads(content)
 
-print(f"{units['feet']} feet and {units['inches']} inches is equal to {meter}")
+for question in data:
+    print(question["question_text"])
 
-if meter < 1:
-    print("The kid is too small.")
-else:
-    print("The kid can enter the ring.")
+    for index, alternative in enumerate(question["alternatives"]):
+        print(index + 1, "-", alternative)
+
+    user_input = int(input("Enter your answer: "))
+    question["user_answer"] = user_input
+
+score = 0
+
+for index, question in enumerate(data):
+    if question["user_answer"] == question["correct_answer"]:
+        score += 1
+        result = "Correct Answer"
+    else:
+        result = "Wrong Answer"
+    message = (f"{index + 1} {result} Your Answer: {question['user_answer']} "
+               f"Correct Answer: {question['correct_answer']}")
+    print(message)
+
+print("Score:", score, "/2")
 
