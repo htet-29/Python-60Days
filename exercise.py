@@ -1,6 +1,13 @@
+from parser import parse
 import random
 
-lower_bound = int(input("Enter your lower bound: "))
-upper_bound = int(input("Enter your upper bound: "))
+# Ask the user to enter a lower and an upper bound divided by a comma
+user_input = input("Enter a lower bound and an uppwer bound divided a comma (e.g., 2,10)")
 
-print(random.randint(lower_bound, upper_bound))
+# Parse the user string by calling the parse function
+parsed = parse(user_input)
+
+# Pick a random int between the two numbers
+rand = random.randint(parsed['lower_bound'], parsed['upper_bound'])
+
+print(rand)
