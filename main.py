@@ -1,7 +1,3 @@
-import glob
+import shutil
 
-filepaths = glob.glob('files/*.txt')
-
-for filepath in filepaths:
-    with open(filepath, 'r') as file:
-        print(file.read())
+shutil.make_archive('ouput', 'zip', 'files')
