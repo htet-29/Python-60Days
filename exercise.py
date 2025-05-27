@@ -1,5 +1,6 @@
-def average(_list):
-    return sum(_list) / len(_list)
+import random
 
+lower_bound = int(input("Enter your lower bound: "))
+upper_bound = int(input("Enter your upper bound: "))
 
-print(average([1,2,3,4,5]))
+print(random.randint(lower_bound, upper_bound))
