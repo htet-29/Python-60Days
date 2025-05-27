@@ -1,11 +1,5 @@
-import csv
+import webbrowser
 
-with open("weather.csv", 'r') as file:
-    data = list(csv.reader(file))
+search_term = input("Enter search term: ").replace(" ", "+")
 
-
-city = input("Enter the city name: ")
-
-for row in data[1:]:
-    if row[0] == city:
-        print(row[1])
+webbrowser.open("https://www.google.com/search?q=" + search_term)
