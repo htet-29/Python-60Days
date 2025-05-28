@@ -1,30 +1,21 @@
-import json
+import FreeSimpleGUI as sg
 
-with open("questions.json", "r") as file:
-    content = file.read()
+label_1 = sg.Text('Select files to compress:')
+input_1 = sg.Input()
+choose_btn_1 = sg.FilesBrowse('Choose')
 
-data = json.loads(content)
+label_2 = sg.Text('Select destination folder:')
+input_2 = sg.Input()
+choose_btn_2 = sg.FolderBrowse('Choose')
 
-for question in data:
-    print(question["question_text"])
+compressed_btn = sg.Button('Compress')
 
-    for index, alternative in enumerate(question["alternatives"]):
-        print(index + 1, "-", alternative)
+layout = [
+    [label_1, input_1, choose_btn_1],
+    [label_2, input_2, choose_btn_2],
+    [compressed_btn]
+]
 
-    user_input = int(input("Enter your answer: "))
-    question["user_answer"] = user_input
-
-score = 0
-
-for index, question in enumerate(data):
-    if question["user_answer"] == question["correct_answer"]:
-        score += 1
-        result = "Correct Answer"
-    else:
-        result = "Wrong Answer"
-    message = (f"{index + 1} {result} Your Answer: {question['user_answer']} "
-               f"Correct Answer: {question['correct_answer']}")
-    print(message)
-
-print("Score:", score, "/2")
-
+window = sg.Window('File Compressor', layout)
+window.read()
+window.close()
