@@ -28,10 +28,13 @@ while True:
 
     match event:
         case 'Convert':
-            feet = float(values["feet"])
-            inches = float(values["inches"])
-            result = str(feet_inches_to_meters(feet, inches)) + ' m'
-            window['output'].update(value=result)
+            try:
+                feet = float(values["feet"])
+                inches = float(values["inches"])
+                result = str(feet_inches_to_meters(feet, inches)) + ' m'
+                window['output'].update(value=result)
+            except ValueError:
+                sg.popup("Please provide two numbers!", font=('Helvetica', 10))
         case 'Exit':
             break
         case sg.WIN_CLOSED:
