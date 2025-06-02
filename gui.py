@@ -7,11 +7,12 @@ sg.theme('BlueMono')
 clock = sg.Text('', key='clock')
 label = sg.Text('Type in a to-do')
 input_text = sg.InputText(tooltip='Enter todo', key='todo_input')
-add_button = sg.Button('Add')
+
+add_button = sg.Button(size=20, image_source='images/add.png', tooltip='Add Todo', key='Add')
 todo_listbox = sg.Listbox(values=functions.get_todos_from_file(), key='todos_listbox',
                           enable_events=True, size=(45, 10))
-edit_button = sg.Button('Edit')
-complete_button = sg.Button('Complete')
+edit_button = sg.Button('Edit', size=10, font=5)
+complete_button = sg.Button(size=20, image_source='images/complete.png', tooltip='Complete Todo', key='Complete')
 exit_button = sg.Button('Exit')
 
 window = sg.Window('My To-do App',
