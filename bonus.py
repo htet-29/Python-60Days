@@ -1,15 +1,17 @@
 import FreeSimpleGUI as sg
-from zip_creator import make_archive
+from zip_extractor import extract_archive
 
-label_1 = sg.Text('Select files to compress:')
+sg.theme('Black')
+
+label_1 = sg.Text('Select file to extract:')
 input_1 = sg.Input()
-choose_btn_1 = sg.FilesBrowse('Choose', key='files')
+choose_btn_1 = sg.FileBrowse('Choose', key='archive')
 
 label_2 = sg.Text('Select destination folder:')
 input_2 = sg.Input()
 choose_btn_2 = sg.FolderBrowse('Choose', key='folder')
 
-compressed_btn = sg.Button('Compress')
+compressed_btn = sg.Button('Extract')
 output_text = sg.Text(key='output', text_color='green')
 
 layout = [
@@ -18,15 +20,14 @@ layout = [
     [compressed_btn, output_text]
 ]
 
-window = sg.Window('File Compressor', layout)
+window = sg.Window('Zip Extractor', layout)
 
 while True:
     event, values = window.read()
-    print(event, values)
-    files_path = values['files'].split(';')
+    file_path = values['archive']
     folder_path = values['folder']
-    make_archive(files_path, folder_path)
-    window['output'].update(value='Compression successful!')
+    extract_archive(file_path, folder_path)
+    window['output'].update(value='Extraction successful!')
     if event == sg.WIN_CLOSED:
         break
 
