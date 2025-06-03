@@ -14,9 +14,12 @@ choose_btn_2 = sg.FolderBrowse('Choose', key='folder')
 compressed_btn = sg.Button('Extract')
 output_text = sg.Text(key='output', text_color='green')
 
+col1 = sg.Column([[label_1], [label_2]])
+col2 = sg.Column([[input_1], [input_2]])
+col3 = sg.Column([[choose_btn_1], [choose_btn_2]])
+
 layout = [
-    [label_1, input_1, choose_btn_1],
-    [label_2, input_2, choose_btn_2],
+    [col1, col2, col3],
     [compressed_btn, output_text]
 ]
 
