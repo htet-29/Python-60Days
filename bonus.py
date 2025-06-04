@@ -1,37 +1,21 @@
-import FreeSimpleGUI as sg
-from zip_extractor import extract_archive
+import streamlit as st
+from PIL import Image
 
-sg.theme('Black')
+with st.expander("Start Camera"):
+   camera_image = st.camera_input("Camera")
 
-label_1 = sg.Text('Select file to extract:')
-input_1 = sg.Input()
-choose_btn_1 = sg.FileBrowse('Choose', key='archive')
 
-label_2 = sg.Text('Select destination folder:')
-input_2 = sg.Input()
-choose_btn_2 = sg.FolderBrowse('Choose', key='folder')
+with st.expander("Upload Image"):
+    file_image = st.file_uploader("Upload Image")
 
-compressed_btn = sg.Button('Extract')
-output_text = sg.Text(key='output', text_color='green')
 
-col1 = sg.Column([[label_1], [label_2]])
-col2 = sg.Column([[input_1], [input_2]])
-col3 = sg.Column([[choose_btn_1], [choose_btn_2]])
+if camera_image:
+    img = Image.open(camera_image)
+    gray_convert_img = img.convert("L")
+    st.image(gray_convert_img)
 
-layout = [
-    [col1, col2, col3],
-    [compressed_btn, output_text]
-]
 
-window = sg.Window('Zip Extractor', layout)
-
-while True:
-    event, values = window.read()
-    file_path = values['archive']
-    folder_path = values['folder']
-    extract_archive(file_path, folder_path)
-    window['output'].update(value='Extraction successful!')
-    if event == sg.WIN_CLOSED:
-        break
-
-window.close()
+if file_image:
+    f_img = Image.open(file_image)
+    f_gray_img = f_img.convert("L")
+    st.image(f_gray_img)
